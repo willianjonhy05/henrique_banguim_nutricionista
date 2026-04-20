@@ -9,7 +9,7 @@
     --transition: all 0.3s ease;
 
     /* Espaçamento uniforme para todas as sections */
-    --section-padding: 100px 0;
+    --section-padding: 50px 0;
 }
 
 * {
@@ -29,7 +29,9 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Playfair Display', serif;
     margin-bottom: 10px;
 }
@@ -70,9 +72,25 @@ header {
     text-decoration: none;
     color: var(--color-primary);
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
 }
 
-.logo span { font-weight: 300; color: var(--color-text); }
+.logo img {
+    transition: all 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--color-text);
+}
 
 /* Hambúrguer oculto no desktop */
 .mobile-menu-icon {
@@ -92,10 +110,12 @@ header {
 .mobile-menu-icon.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .mobile-menu-icon.toggle .line2 {
     opacity: 0;
     transform: translateX(-10px);
 }
+
 .mobile-menu-icon.toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
@@ -115,9 +135,13 @@ header {
     transition: var(--transition);
 }
 
-#agendar { color: var(--color-white); }
+#agendar {
+    color: var(--color-white);
+}
 
-.nav-links a:hover { color: var(--color-primary); }
+.nav-links a:hover {
+    color: var(--color-primary);
+}
 
 /* ================================
    HERO — fundo: var(--color-bg)
@@ -138,7 +162,9 @@ header {
     gap: 40px;
 }
 
-.hero-content { flex: 1; }
+.hero-content {
+    flex: 1;
+}
 
 .hero-content h1 {
     font-size: 3.5rem;
@@ -146,7 +172,9 @@ header {
     margin-bottom: 20px;
 }
 
-.hero-content h1 span { color: var(--color-primary); }
+.hero-content h1 span {
+    color: var(--color-primary);
+}
 
 .hero-content p {
     font-size: 1.1rem;
@@ -252,7 +280,7 @@ header {
     height: 100%;
     background-color: var(--color-bg);
     z-index: 1;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .lead {
@@ -304,11 +332,34 @@ header {
     border-radius: 15px;
     text-align: center;
     transition: var(--transition);
+    cursor: pointer;
 }
 
-.card-nutri:hover { transform: translateY(-10px); }
+.card-nutri:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 
-.card-nutri i { font-size: 2.5rem; color: var(--color-primary); margin-bottom: 20px; }
+
+}
+
+.card-nutri i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.card-nutri:hover i {
+    transform: scale(1.2);
+    color: var(--color-primary-dark);
+}
+
+.card-nutri:active,
+.card-nutri:focus {
+    transform: scale(0.98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 
 /* ================================
    DEPOIMENTOS — fundo: var(--color-text)
@@ -330,10 +381,12 @@ header {
     position: relative;
     border-radius: 4px;
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-.testimonial-card:hover { transform: translateY(-10px); }
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
 
 .quote-icon {
     font-family: 'Playfair Display', serif;
@@ -422,7 +475,9 @@ header {
     font-weight: 600;
 }
 
-.blog-content { padding: 30px 0; }
+.blog-content {
+    padding: 30px 0;
+}
 
 .blog-date {
     font-size: 0.8rem;
@@ -466,10 +521,21 @@ header {
     transition: transform 0.3s ease;
 }
 
-.blog-card:hover .blog-image img { transform: scale(1.1); }
-.blog-card:hover h3 { color: var(--color-primary); }
-.blog-card:hover .read-more i { transform: translateX(5px); }
-.blog-footer-cta { text-align: center; }
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-card:hover h3 {
+    color: var(--color-primary);
+}
+
+.blog-card:hover .read-more i {
+    transform: translateX(5px);
+}
+
+.blog-footer-cta {
+    text-align: center;
+}
 
 /* ================================
    CONTATO — fundo: var(--color-bg)
@@ -490,8 +556,15 @@ footer {
     text-align: center;
 }
 
-.social-footer { margin-top: 20px; }
-.social-footer a { color: white; font-size: 1.5rem; margin: 0 10px; }
+.social-footer {
+    margin-top: 20px;
+}
+
+.social-footer a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
 
 /* ================================
    WHATSAPP FLOAT
@@ -510,7 +583,7 @@ footer {
     justify-content: center;
     font-size: 30px;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -518,16 +591,28 @@ footer {
 /* ================================
    ANIMAÇÃO REVEAL
 ================================ */
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* ================================
    TABLET (≤992px)
 ================================ */
 @media (max-width: 992px) {
-    :root { --section-padding: 80px 0; }
+    :root {
+        --section-padding: 80px 0;
+    }
 
-    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
 
     .about-grid {
         grid-template-columns: 1fr;
@@ -535,7 +620,9 @@ footer {
         text-align: center;
     }
 
-    .image-stack { padding-right: 0; }
+    .image-stack {
+        padding-right: 0;
+    }
 
     /* Imagem exibida inteira: sem altura fixa */
     .img-main {
@@ -543,16 +630,22 @@ footer {
         object-fit: unset;
     }
 
-    .image-decoration { display: none; }
+    .image-decoration {
+        display: none;
+    }
 
-    .testimonial-grid { grid-template-columns: 1fr; }
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
 
     .blog-grid {
         grid-template-columns: 1fr;
         gap: 50px;
     }
 
-    .blog-image { height: 300px; }
+    .blog-image {
+        height: 300px;
+    }
 
     .grid-services {
         grid-template-columns: 1fr;
@@ -564,10 +657,14 @@ footer {
    MOBILE (≤768px)
 ================================ */
 @media (max-width: 768px) {
-    :root { --section-padding: 70px 0; }
+    :root {
+        --section-padding: 70px 0;
+    }
 
     /* Hambúrguer visível */
-    .mobile-menu-icon { display: block; }
+    .mobile-menu-icon {
+        display: block;
+    }
 
     /*
      * FIX: Menu começa fora da tela com visibility:hidden + pointer-events:none.
@@ -590,7 +687,7 @@ footer {
         transition: transform 0.4s ease;
         visibility: hidden;
         pointer-events: none;
-        box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         z-index: 999;
     }
 
@@ -601,9 +698,19 @@ footer {
     }
 
     /* Hero */
-    .hero-layout { flex-direction: column-reverse; text-align: center; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-image img { max-width: 280px; box-shadow: 10px 10px 0 var(--color-primary); }
+    .hero-layout {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-image img {
+        max-width: 280px;
+        box-shadow: 10px 10px 0 var(--color-primary);
+    }
 
     /* Imagem sobre: exibida inteira sem corte */
     .img-main {
@@ -612,7 +719,9 @@ footer {
         width: 100%;
     }
 
-    .image-decoration { display: none; }
+    .image-decoration {
+        display: none;
+    }
 
     /* Cards de serviço: 1 coluna */
     .grid-services {
@@ -760,6 +869,3 @@ header {
 body.menu-open {
     overflow: hidden;
 }
-
-
-
