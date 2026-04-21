@@ -3,10 +3,11 @@
     --color-primary-dark: rgb(75, 95, 69);
     --color-text: rgb(45, 52, 50);
     --color-bg: rgb(235, 232, 226);
-    --color-white: #ffffff;
+    --color-white: rgb(255, 255, 255);
     --color-preto: rgb(0, 0, 0);
     --color-text-light: rgb(97, 94, 94);
     --transition: all 0.3s ease;
+    --color-whatsapp: rgb(37, 211, 102);
 
     /* Espaçamento uniforme para todas as sections */
     --section-padding: 50px 0;
@@ -102,8 +103,9 @@ header {
     width: 25px;
     height: 3px;
     background-color: var(--color-primary);
+    background: var(--color-preto);
     margin: 5px;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 /* Animação hambúrguer → X quando menu está aberto */
@@ -222,7 +224,7 @@ header {
 }
 
 .btn-wpp {
-    background-color: #25d366;
+    background-color: var(--color-whatsapp);
     font-size: 1.1rem;
     margin-top: 20px;
 }
@@ -346,7 +348,7 @@ header {
     font-size: 2.5rem;
     color: var(--color-primary);
     margin-bottom: 20px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .card-nutri:hover i {
@@ -371,54 +373,65 @@ header {
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
 }
 
 .testimonial-card {
     background: var(--color-white);
-    padding: 60px 40px;
-    position: relative;
-    border-radius: 4px;
+    padding: 12px;
+    border-radius: 18px;
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
 }
 
-.quote-icon {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    color: var(--color-primary);
-    line-height: 1;
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    opacity: 0.1;
+.testimonial-media {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--color-white);
 }
 
-.testimonial-card p {
-    font-style: italic;
-    color: var(--color-text);
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
-    line-height: 1.8;
-}
-
-.client-info strong {
+.testimonial-image {
     display: block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.8rem;
-    color: var(--color-primary);
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 14px;
+    transition: transform 0.45s ease, filter 0.35s ease;
 }
 
-.client-info span {
-    font-size: 0.8rem;
-    color: var(--color-text-light);
+@media (hover: hover) and (pointer: fine) {
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+    }
+
+    .testimonial-card:hover .testimonial-image {
+        transform: scale(1.04);
+        filter: brightness(1.03);
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .testimonial-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+    }
+
+    .testimonial-card:active .testimonial-image {
+        transform: scale(1.02);
+        filter: brightness(1.02);
+    }
 }
 
 /* ================================
@@ -561,7 +574,7 @@ footer {
 }
 
 .social-footer a {
-    color: white;
+    color: var(--color-white);
     font-size: 1.5rem;
     margin: 0 10px;
 }
@@ -573,8 +586,8 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25d366;
-    color: white;
+    background-color: var(--color-whatsapp);
+    color: var(--color-white);
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -635,7 +648,8 @@ footer {
     }
 
     .testimonial-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
     }
 
     .blog-grid {
@@ -689,6 +703,7 @@ footer {
         pointer-events: none;
         box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         z-index: 999;
+        align-items: center;
     }
 
     .nav-links.active {
@@ -728,6 +743,20 @@ footer {
         grid-template-columns: 1fr;
         max-width: 100%;
     }
+
+        .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        padding: 10px;
+        border-radius: 16px;
+    }
+
+    .testimonial-media,
+    .testimonial-image {
+        border-radius: 12px;
+    }
 }
 
 body.menu-open {
@@ -753,68 +782,9 @@ body.menu-open {
 #close-menu-btn:hover {
     color: var(--color-primary);
     transform: rotate(90deg);
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
-
-
-:root {
-    --color-primary: #627c5b;
-    --color-text: #2d3432;
-    --color-white: #fff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* HEADER */
-header {
-    background: white;
-    padding: 20px;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* MENU DESKTOP */
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--color-text);
-}
-
-/* HAMBÚRGUER */
-.mobile-menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-.mobile-menu-icon div {
-    width: 25px;
-    height: 3px;
-    background: black;
-    margin: 5px;
-}
-
-/* BOTÃO X (ESCONDIDO NO DESKTOP) */
-.close-menu {
-    display: none;
-}
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
@@ -823,25 +793,6 @@ header {
         display: block;
     }
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 75%;
-        height: 100vh;
-        background: white;
-
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        transform: translateX(100%);
-        transition: 0.3s;
-
-        visibility: hidden;
-        pointer-events: none;
-        z-index: 999;
-    }
 
     .nav-links.active {
         transform: translateX(0);
@@ -865,7 +816,3 @@ header {
     }
 }
 
-/* BLOQUEAR SCROLL */
-body.menu-open {
-    overflow: hidden;
-}
